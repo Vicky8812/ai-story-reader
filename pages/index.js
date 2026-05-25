@@ -3,14 +3,15 @@ import * as pdfjsLib from 'pdfjs-dist'
 import ePub from 'epubjs'
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.js`
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.js'
 
 export default function Home() {
   const [text, setText] = useState('Upload PDF or EPUB')
   const [voices, setVoices] = useState([])
   const [selectedVoice, setSelectedVoice] = useState('')
   const [rate, setRate] = useState(1)
-  const [speaking, setSpeaking] = useState(false)
+  const [speaking, setSpeaking] = useState(false)0
+  
 
   useEffect(() => {
     loadVoices()
@@ -61,9 +62,9 @@ export default function Home() {
 
         const content = await page.getTextContent()
 
-        const strings = content.items.map(item => item.str)
+        const strings = content.items.map((item) => item.str)
 
-        fullText += strings.join(' ') + '\\n\\n'
+        fullText += strings.join(' ') + '\n\n'
       }
 
       setText(fullText)
@@ -84,7 +85,7 @@ export default function Home() {
     for (const item of spineItems) {
       const doc = await item.load(book.load.bind(book))
 
-      fullText += doc.body.textContent + '\\n\\n'
+      fullText += doc.body.textContent + '\n\n'
 
       item.unload()
     }
@@ -97,7 +98,7 @@ export default function Home() {
 
     const utterance = new SpeechSynthesisUtterance(text)
 
-    const voice = voices.find(v => v.name === selectedVoice)
+    const voice = voices.find((v) => v.name === selectedVoice)
 
     if (voice) {
       utterance.voice = voice
@@ -123,17 +124,17 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className=\"title\">
+      <div className="title">
         AI Story Reader
       </div>
 
       <input
-        type=\"file\"
-        accept=\".pdf,.epub\"
+        type="file"
+        accept=".pdf,.epub"
         onChange={handleFile}
       />
 
-      <div className=\"controls\">
+      <div className="controls">
         <select
           value={selectedVoice}
           onChange={(e) => setSelectedVoice(e.target.value)}
@@ -146,10 +147,10 @@ export default function Home() {
         </select>
 
         <input
-          type=\"range\"
-          min=\"0.5\"
-          max=\"2\"
-          step=\"0.1\"
+          type="range"
+          min="0.5"
+          max="2"
+          step="0.1"
           value={rate}
           onChange={(e) => setRate(e.target.value)}
         />
@@ -165,9 +166,9 @@ export default function Home() {
         )}
       </div>
 
-      <div className=\"reader\">
+      <div className="reader">
         {text}
       </div>
     </div>
   )
-            }
+}
