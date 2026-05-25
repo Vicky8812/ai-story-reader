@@ -10,7 +10,7 @@ export default function Home() {
   const [voices, setVoices] = useState([])
   const [selectedVoice, setSelectedVoice] = useState('')
   const [rate, setRate] = useState(1)
-  const [speaking, setSpeaking] = useState(false)0
+  const [speaking, setSpeaking] = useState(false)
   
 
   useEffect(() => {
