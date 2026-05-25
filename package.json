@@ -1,18 +1,15 @@
 {
-      "name": "ai-story-reader",
-        "version": "1.0.0",
-          "private": true,
-            "scripts": {
-                    "dev": "next dev"
-            },
-              "dependencies": {
-                    "epubjs": "^0.3.93",
-                        "next": "latest",
-                            "pdfjs-dist": "^4.4.168",
-                                "react": "latest",
-                                    "react-dom": "latest"
-              }
-}
-              }
-            }
+  "name": "ai-story-reader",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "epubjs": "^0.3.93",
+    "next": "latest",
+    "pdfjs-dist": "^4.4.168",
+    "react": "latest",
+    "react-dom": "latest"
+  }
 }
